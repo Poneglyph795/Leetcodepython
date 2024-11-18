@@ -1,0 +1,30 @@
+class Solution:
+    def decrypt(self, code: List[int], k: int) -> List[int]:
+     n=len(code) # put the length of code into variable called n 
+     yadnesh=[0]*n  # Make the array of that how much length it is   and these becuae it matches the result array 
+     for i in range(n):  
+         if k==0:
+             yadnesh[i]=0
+         elif  k>0:
+             yadnesh[i]=sum(code[(i+j)%n] for j in range(1,k+1))
+         else: 
+             yadnesh[i]=sum(code[(i+j)%n ] for j in range (k,0))
+     return yadnesh
+     solution=Solution()
+     code=[5,7,1,4]
+     k=3
+     output =solution.decrypt(code,k)
+     print(output)
+
+     code=[1,2,3,4]
+     k=0
+     output1=solution.decrypt(code,k)
+     print(output1)
+
+     code=[2,4,9,3]
+     k=-2
+     ouput3=solution.decrypt(code,k)
+     print(ouput3)
+     
+    
+        
